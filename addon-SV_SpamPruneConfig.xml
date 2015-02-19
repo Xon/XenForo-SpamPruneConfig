@@ -13,34 +13,53 @@
   <email_templates/>
   <email_template_modifications/>
   <optiongroups>
-    <group group_id="SV_SpamPruneConfig" display_order="1" debug_only="0"/>
-    <option option_id="SV_SpamPruneConfig_SpamTrigger_PruneDays" edit_format="spinbox" data_type="integer" can_backup="1">
+    <group group_id="SV_SpamPruneConfig" display_order="112" debug_only="0"/>
+    <option option_id="SV_SpamPruneConfig_Prune_Default" edit_format="spinbox" data_type="unsigned_integer" can_backup="1">
       <default_value>30</default_value>
       <edit_format_params></edit_format_params>
       <sub_options></sub_options>
       <relation group_id="SV_SpamPruneConfig" display_order="5"/>
     </option>
-    <option option_id="SV_SpamPruneConfig_SpamTrigger_User_Allowed_PruneDays" edit_format="spinbox" data_type="integer" can_backup="1">
+    <option option_id="SV_SpamPruneConfig_Prune_User_Allowed" edit_format="spinbox" data_type="unsigned_integer" can_backup="1">
       <default_value>30</default_value>
       <edit_format_params></edit_format_params>
       <sub_options></sub_options>
       <relation group_id="SV_SpamPruneConfig" display_order="15"/>
     </option>
-    <option option_id="SV_SpamPruneConfig_SpamTrigger_User_Moderated_PruneDays" edit_format="spinbox" data_type="integer" can_backup="1">
+    <option option_id="SV_SpamPruneConfig_Prune_User_Moderated" edit_format="spinbox" data_type="unsigned_integer" can_backup="1">
       <default_value>30</default_value>
       <edit_format_params></edit_format_params>
       <sub_options></sub_options>
       <relation group_id="SV_SpamPruneConfig" display_order="15"/>
     </option>
-    <option option_id="SV_SpamPruneConfig_SpamTrigger_User_Rejected_PruneDays" edit_format="spinbox" data_type="integer" can_backup="1">
+    <option option_id="SV_SpamPruneConfig_Prune_User_Rejected" edit_format="spinbox" data_type="unsigned_integer" can_backup="1">
       <default_value>30</default_value>
       <edit_format_params></edit_format_params>
       <sub_options></sub_options>
       <relation group_id="SV_SpamPruneConfig" display_order="15"/>
     </option>
   </optiongroups>
-  <permissions/>
-  <phrases/>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="option_group_SV_SpamPruneConfig" version_id="10000" version_string="1.0.0"><![CDATA[Spam Trigger log pruning]]></phrase>
+    <phrase title="option_group_SV_SpamPruneConfig_description" version_id="10000" version_string="1.0.0"><![CDATA[Permits configuration of the SpamTrigger log pruning.]]></phrase>
+    <phrase title="option_SV_SpamPruneConfig_Prune_Default" version_id="10000" version_string="1.0.0"><![CDATA[Default Log Pruning Days]]></phrase>
+    <phrase title="option_SV_SpamPruneConfig_Prune_Default_explain" version_id="10000" version_string="1.0.0"><![CDATA[The number of days the Spam Trigger Log will be pruned for non-user records.<br/><br/>
+Zero to disable pruning of these records.]]></phrase>
+    <phrase title="option_SV_SpamPruneConfig_Prune_User_Allowed" version_id="10000" version_string="1.0.0"><![CDATA[Allowed User Log Pruning Days]]></phrase>
+    <phrase title="option_SV_SpamPruneConfig_Prune_User_Allowed_explain" version_id="10000" version_string="1.0.0"><![CDATA[The number of days before Allowed User records are pruned from the Spam Trigger Log.<br/><br/>
+Zero to disable pruning of these records.]]></phrase>
+    <phrase title="option_SV_SpamPruneConfig_Prune_User_Moderated" version_id="10000" version_string="1.0.0"><![CDATA[Moderated User Log Pruning Days]]></phrase>
+    <phrase title="option_SV_SpamPruneConfig_Prune_User_Moderated_explain" version_id="10000" version_string="1.0.0"><![CDATA[The number of days before Moderated User records are pruned from the Spam Trigger Log.<br/><br/>
+Zero to disable pruning of these records.]]></phrase>
+    <phrase title="option_SV_SpamPruneConfig_Prune_User_Rejected" version_id="10000" version_string="1.0.0"><![CDATA[Rejected User Log Pruning Days]]></phrase>
+    <phrase title="option_SV_SpamPruneConfig_Prune_User_Rejected_explain" version_id="10000" version_string="1.0.0"><![CDATA[The number of days before Rejected User records are pruned from the Spam Trigger Log.<br/><br/>
+Zero to disable pruning of these records.]]></phrase>
+  </phrases>
   <route_prefixes/>
   <style_properties/>
   <templates/>

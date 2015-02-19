@@ -5,24 +5,24 @@ class SV_SpamPruneConfig_XenForo_Model_SpamPrevention extends XFCP_SV_SpamPruneC
     {
         if ($cutOff === null)
         {
-            $cutOff = XenForo_Application::get('options')->SV_SpamPruneConfig_SpamTrigger_PruneDays * 86400;
+            $cutOff = XenForo_Application::get('options')->SV_SpamPruneConfig_Prune_Default * 86400;
         }
         if ($cutOff > 0)
         {
             $this->_getDb()->query("delete from xf_spam_trigger_log where content_type <> 'user' and log_date < ? ", array($cutOff));
         }
         
-        $cutOff = XenForo_Application::get('options')->SV_SpamPruneConfig_SpamTrigger_User_Rejected_PruneDays ;
+        $cutOff = XenForo_Application::get('options')->SV_SpamPruneConfig_Prune_User_Rejected;
         if ($cutOff > 0)
         {
             $this->_getDb()->query("delete from xf_spam_trigger_log where content_type = ? and result = ? and log_date < ? ", array('user', self::RESULT_DENIED, $cutOff * 86400));
         }
-        $cutOff = XenForo_Application::get('options')->SV_SpamPruneConfig_SpamTrigger_User_Moderated_PruneDays ;
+        $cutOff = XenForo_Application::get('options')->SV_SpamPruneConfig_Prune_User_Moderated ;
         if ($cutOff > 0)
         {
             $this->_getDb()->query("delete from xf_spam_trigger_log where content_type = ? and result = ? and log_date < ? ", array('user', self::RESULT_MODERATED, $cutOff * 86400));
         }
-        $cutOff = XenForo_Application::get('options')->SV_SpamPruneConfig_SpamTrigger_User_Allowed_PruneDays ;
+        $cutOff = XenForo_Application::get('options')->SV_SpamPruneConfig_Prune_User_Allowed ;
         if ($cutOff > 0)
         {
             $this->_getDb()->query("delete from xf_spam_trigger_log where content_type = ? and result = ? and log_date < ? ", array('user', self::RESULT_ALLOWED, $cutOff * 86400));
