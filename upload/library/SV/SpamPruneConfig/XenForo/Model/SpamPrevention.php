@@ -27,5 +27,8 @@ class SV_SpamPruneConfig_XenForo_Model_SpamPrevention extends XFCP_SV_SpamPruneC
         {
             $this->_getDb()->query("delete from xf_spam_trigger_log where content_type = ? and result = ? and log_date < ? ", array('user', self::RESULT_ALLOWED, XenForo_Application::$time - $cutOff * 86400));
         }
+        
+        // prune spam trigger records for deleted users (should mostly be moderated but rejected)
+        $this->_getDb()->query("delete from xf_spam_trigger_log where content_type = ? and log_date < ? and content_id not in (select user_id from xf_user where xf_user.user_id = xf_spam_trigger_log.content_id) ", array('user', self::RESULT_DENIED, XenForo_Application::$time - $cutOff * 86400))
     }
 }
