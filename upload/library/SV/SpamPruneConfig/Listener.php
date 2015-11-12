@@ -2,15 +2,10 @@
 
 class SV_SpamPruneConfig_Listener
 {
-    const AddonNameSpace = 'SV_SpamPruneConfig';
+    const AddonNameSpace = 'SV_SpamPruneConfig_';
 
     public static function load_class($class, array &$extend)
     {
-        switch($class)
-        {
-            case 'XenForo_Model_SpamPrevention':
-                $extend[] = self::AddonNameSpace.'_'.$class;
-                break;
-        }
+        $extend[] = self::AddonNameSpace.$class;
     }
 }
